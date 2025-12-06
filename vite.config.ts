@@ -1,7 +1,8 @@
-import { defineConfig } from "vite"
-import react from "@vitejs/plugin-react"
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react-swc";
+import path from "path";
 
 export default defineConfig({
-  base: "/portfolio/", // 👈 use your repo name here
-  plugins: [react()],
+  base: '/portfolio/', // 👈 repo name, with *leading and trailing slashes*
+  // plugins: [...]
 })
