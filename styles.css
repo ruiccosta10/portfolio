@@ -88,7 +88,7 @@ body {
 }
 
 .section {
-  padding: 4rem 0;
+  padding: 3rem 0;
 }
 
 .section-alt {
@@ -284,10 +284,18 @@ body {
   border: 1px solid var(--accent-soft);
   padding: 0.2rem 0.7rem;
   background: var(--surface);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
 }
 
 .hero-link:hover {
   background: var(--accent-soft);
+}
+
+.hero-link-icon {
+  font-size: 1rem;
+  line-height: 1;
 }
 
 .hero-right h1 {
@@ -630,6 +638,18 @@ body {
   text-decoration: none;
 }
 
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.contact-icon {
+  font-size: 1.1rem;
+  line-height: 1.2;
+  margin-top: 1px;
+}
+
 .contact-form {
   background: var(--surface);
   border-radius: var(--radius-lg);
@@ -752,7 +772,7 @@ textarea:focus {
 
 @media (max-width: 640px) {
   .section {
-    padding: 3rem 0;
+    padding: 2.5rem 0;
   }
 
   .projects-grid {
@@ -763,3 +783,4 @@ textarea:focus {
     width: min(100% - 1.75rem, 640px);
   }
 }
+
