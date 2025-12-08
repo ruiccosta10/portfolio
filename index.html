@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-mode="light" data-scheme="terminal">
+<html lang="en" data-mode="light" data-scheme="default">
 
 <head>
   <meta charset="UTF-8" />
@@ -14,58 +14,6 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
-
-  <!-- Small overrides: terminal-only theme + layout tweaks for timeline years and contact full-width -->
-  <style>
-    :root {
-      --bg-light: #f6f6ef;
-      --text-light: #c6c6c2;
-      --accent: #33ff00;
-      --muted: #9aa0a6;
-      --panel: #0b0b0b;
-    }
-
-    html[data-scheme="terminal"][data-mode="light"] {
-      background: #ffffff;
-      color: #0b0b0b;
-    }
-
-    html[data-scheme="terminal"][data-mode="dark"] {
-      background: #0b0b0b;
-      color: var(--text-light);
-    }
-
-    /* Basic "terminal" look for header controls */
-    .theme-controls { display:flex; gap:.5rem; align-items:center; }
-    .theme-toggle { font-size:1.05rem; padding:.35rem .6rem; }
-
-    /* Timeline: show year prominently at top-right of each item */
-    .timeline-item { position:relative; padding-right:5.5rem; }
-    .timeline-year {
-      position:absolute;
-      right:0.5rem;
-      top:0.8rem;
-      font-weight:600;
-      color:var(--muted);
-      font-size:.95rem;
-      white-space:nowrap;
-    }
-
-    /* Contact: full-width email, contacts and form */
-    .contact-full { display:block; width:100%; }
-    .contact-full .full-width { display:block; width:100%; max-width:none; margin:0 0 1rem 0; }
-    .contact-full .contact-list { padding-left:0; list-style:none; display:block; }
-    .contact-full .contact-list li { padding:.35rem 0; border-bottom:1px dashed rgba(0,0,0,0.06); }
-
-    /* Ensure image is visible and constrained */
-    .profile-photo { width:100%; max-width:320px; height:auto; display:block; border-radius:8px; object-fit:cover; }
-
-    /* Small responsive tweak */
-    @media (min-width:900px) {
-      .timeline-item { padding-right:7rem; }
-      .timeline-year { top:1rem; font-size:1rem; }
-    }
-  </style>
 </head>
 
 <body>
@@ -89,9 +37,18 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
 
-        <!-- Simplified theme controls: terminal scheme only, toggle light/dark -->
+        <!-- Theme controls: right side, below tabs -->
         <div class="theme-controls">
-          <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+            🌙
+          </button>
+
+          <label for="themePicker" class="theme-picker-label">Theme</label>
+          <select id="themePicker" class="theme-picker" aria-label="Select color theme">
+            <option value="default">Default</option>
+            <option value="retro">Retro</option>
+            <option value="terminal">Linux terminal</option>
+          </select>
         </div>
       </nav>
     </div>
@@ -103,10 +60,8 @@
       <div class="container hero-inner">
         <div class="hero-left">
           <div class="profile-photo-wrapper">
-            <!-- Image with fallback if missing -->
-            <img src="images/rui.jpg"
-                 onerror="this.onerror=null; this.src='https://via.placeholder.com/320x320?text=Rui';"
-                 alt="Portrait of Rui Carvalho da Costa" class="profile-photo">
+            <!-- Image now inside images/ folder -->
+            <img src="images/rui.jpg" alt="Portrait of Rui Carvalho da Costa" class="profile-photo">
           </div>
 
           <!-- Links that were at the bottom, now also directly under the image -->
@@ -151,6 +106,7 @@
               <span class="meta-label">Location</span>
               <span class="meta-value">Porto, Portugal</span>
             </div>
+            <!-- Teaching moved out of hero to its own section -->
           </div>
 
           <div class="hero-actions">
@@ -175,7 +131,6 @@
             <div class="timeline-marker"></div>
             <div class="timeline-content">
               <h3>PhD in Electrical and Computer Engineering</h3>
-              <span class="timeline-year">2024 – 2028</span>
               <p class="timeline-meta">
                 FEUP · Porto, Portugal · 2024 – 2028 (ongoing)
               </p>
@@ -191,7 +146,6 @@
             <div class="timeline-marker"></div>
             <div class="timeline-content">
               <h3>Invited Assistant Lecturer</h3>
-              <span class="timeline-year">2025 – present</span>
               <p class="timeline-meta">
                 FEUP · Porto, Portugal · 2025 – present
               </p>
@@ -207,7 +161,6 @@
             <div class="timeline-marker"></div>
             <div class="timeline-content">
               <h3>Advanced Studies in Engineering Project</h3>
-              <span class="timeline-year">2023 – 2024</span>
               <p class="timeline-meta">
                 FEUP · Porto, Portugal · 2023 – 2024
               </p>
@@ -223,7 +176,6 @@
             <div class="timeline-marker"></div>
             <div class="timeline-content">
               <h3>MSc in Electrical and Computer Engineering</h3>
-              <span class="timeline-year">2021 – 2023</span>
               <p class="timeline-meta">
                 FEUP · Porto, Portugal · 2021 – 2023
               </p>
@@ -240,7 +192,6 @@
             <div class="timeline-marker"></div>
             <div class="timeline-content">
               <h3>BSc in Engineering Sciences (ECE track, Energy major)</h3>
-              <span class="timeline-year">2018 – 2021</span>
               <p class="timeline-meta">
                 FEUP · Porto, Portugal · 2018 – 2021
               </p>
@@ -256,7 +207,6 @@
             <div class="timeline-marker"></div>
             <div class="timeline-content">
               <h3>Research Fellow – Airborne Wind & Microelectronics</h3>
-              <span class="timeline-year">2023 – present</span>
               <p class="timeline-meta">
                 ISR–Porto / FEUP · 2023 – present
               </p>
@@ -272,7 +222,6 @@
             <div class="timeline-marker"></div>
             <div class="timeline-content">
               <h3>Awards & Recognition</h3>
-              <span class="timeline-year">2024 – present</span>
               <p class="timeline-meta">
                 2024 – present
               </p>
@@ -343,6 +292,7 @@
                 <span class="chip small">Energy</span>
               </div>
               <div class="project-links">
+                <!-- Replace with your actual repos and videos when ready -->
                 <a href="https://github.com/ruiccosta10" target="_blank" rel="noopener noreferrer" class="btn mini">
                   GitHub
                 </a>
@@ -407,6 +357,7 @@
             Overview of my recent public GitHub activity as <code>ruiccosta10</code> (all public repositories).
           </p>
           <div class="github-heatmap">
+            <!-- This chart is generated from the GitHub username, not a single repo -->
             <img
               src="https://ghchart.rshah.org/ruiccosta10"
               alt="GitHub contributions heatmap for user ruiccosta10">
@@ -462,7 +413,6 @@
             <div class="timeline-marker"></div>
             <div class="timeline-content">
               <h3>Control</h3>
-              <span class="timeline-year">2025</span>
               <p class="timeline-meta">
                 Invited Assistant Lecturer · FEUP · 2025
               </p>
@@ -477,7 +427,6 @@
             <div class="timeline-marker"></div>
             <div class="timeline-content">
               <h3>Algebra</h3>
-              <span class="timeline-year">2025–2026</span>
               <p class="timeline-meta">
                 Invited Assistant Lecturer · FEUP · 2025/2026
               </p>
@@ -623,38 +572,37 @@
           <p>Feel free to reach out regarding research, teaching or collaboration.</p>
         </div>
 
-        <div class="contact-full">
-          <!-- Email as full width -->
-          <div class="contact-email full-width">
-            <strong>Email:</strong>
-            <a href="mailto:ruicarcosta@gmail.com">ruicarcosta@gmail.com</a>
+        <div class="contact-layout">
+          <div class="contact-info">
+            <ul class="contact-list">
+              <li>
+                <strong>Email:</strong>
+                <a href="mailto:ruicarcosta@gmail.com">ruicarcosta@gmail.com</a>
+              </li>
+              <li>
+                <strong>Office:</strong> Electrical and Computer Engineering, FEUP, Porto, Portugal
+              </li>
+              <li>
+                <strong>GitHub:</strong>
+                <a href="https://github.com/ruiccosta10" target="_blank" rel="noopener noreferrer">
+                  github.com/ruiccosta10
+                </a>
+              </li>
+              <li>
+                <strong>LinkedIn:</strong>
+                <a href="https://www.linkedin.com/in/ruiccosta/" target="_blank" rel="noopener noreferrer">
+                  linkedin.com/in/ruiccosta
+                </a>
+              </li>
+              <li>
+                <strong>Google Scholar:</strong>
+                <a href="#" target="_blank" rel="noopener noreferrer">Google Scholar profile</a>
+              </li>
+            </ul>
           </div>
 
-          <!-- All other contacts full width below -->
-          <ul class="contact-list full-width">
-            <li>
-              <strong>Office:</strong> Electrical and Computer Engineering, FEUP, Porto, Portugal
-            </li>
-            <li>
-              <strong>GitHub:</strong>
-              <a href="https://github.com/ruiccosta10" target="_blank" rel="noopener noreferrer">
-                github.com/ruiccosta10
-              </a>
-            </li>
-            <li>
-              <strong>LinkedIn:</strong>
-              <a href="https://www.linkedin.com/in/ruiccosta/" target="_blank" rel="noopener noreferrer">
-                linkedin.com/in/ruiccosta
-              </a>
-            </li>
-            <li>
-              <strong>Google Scholar:</strong>
-              <a href="#" target="_blank" rel="noopener noreferrer">Google Scholar profile</a>
-            </li>
-          </ul>
-
-          <!-- Form spans full width -->
-          <form class="contact-form full-width">
+          <form class="contact-form">
+            <!-- Static form – needs a backend or form service to actually send messages -->
             <div class="form-group">
               <label for="name">Name</label>
               <input id="name" name="name" type="text" placeholder="Your name" required />
@@ -685,34 +633,6 @@
       <p class="footer-secondary">Last updated: 2025.</p>
     </div>
   </footer>
-
-  <script>
-    // Theme toggle: only terminal scheme, switch data-mode light/dark
-    (function () {
-      const html = document.documentElement;
-      const btn = document.getElementById('themeToggle');
-      const yearEl = document.getElementById('year');
-
-      // set year
-      if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-      // initialize label/icon
-      function updateBtn() {
-        btn.textContent = html.dataset.mode === 'dark' ? '☀️' : '🌙';
-      }
-
-      // load saved preference
-      const saved = localStorage.getItem('portfolio-mode');
-      if (saved) html.dataset.mode = saved;
-      updateBtn();
-
-      btn.addEventListener('click', () => {
-        html.dataset.mode = html.dataset.mode === 'dark' ? 'light' : 'dark';
-        localStorage.setItem('portfolio-mode', html.dataset.mode);
-        updateBtn();
-      });
-    })();
-  </script>
 
   <script src="script.js"></script>
 </body>
